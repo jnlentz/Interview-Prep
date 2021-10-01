@@ -52,4 +52,9 @@ def fib(n):
     else:
         return fib(n-1) + fib(n-2)
 
+def substringCopies(s, sub, n):
+    if n == 0: return True
+    if len(s) < len(sub): return False
+    if s[:len(sub)] == sub: n -= 1
+    return substringCopies(s[1:], sub, n)
 
