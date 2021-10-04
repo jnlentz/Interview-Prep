@@ -1,3 +1,5 @@
+import time
+
 def repeat(c, count):
     if count == 1:
         print(c, end='')
@@ -58,3 +60,27 @@ def substringCopies(s, sub, n):
     if s[:len(sub)] == sub: n -= 1
     return substringCopies(s[1:], sub, n)
 
+def sumDigits(n, sum):    
+    if n//10 == 0:
+        sum += n
+        return sum
+    else:
+        sum += n%10
+        return sumDigits(n//10, sum)
+
+def powerN(base, n):
+    if n == 1:
+        return base
+    else:
+        return powerN(base*base, n-1)
+
+def count7(n, count):
+    if n%10 == 7:
+        count += 1
+    if n//10 != 0:
+        return count7(n//10, count)
+    else:
+        return count
+
+    
+print(count7(13747237777532, 0))
